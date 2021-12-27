@@ -2,4 +2,9 @@
 
 A game of rock, paper, scissors using the console.
 
-Update 1: Added a function which checks if the user input is valid
+Changelog:
+1: Added a function which checks if the user input is valid
+2: Added a button which starts the game
+2.1: Added CSS
+2.2: Added a reset button
+2.3: Added a text which shows the outcome

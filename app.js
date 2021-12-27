@@ -1,3 +1,22 @@
+// Making the button start the game once its clicked
+const startButton = document.querySelector('#startButton');
+const resetButton = document.querySelector('#resetButton');
+const results = document.querySelector("#result");
+
+startButton.addEventListener('click', function(e) {
+    // Executes the game 
+    game();
+})
+
+// Reset button clears the game
+resetButton.addEventListener('click', function(e) {
+    userScore = 0;
+    cpuScore = 0;
+    count = 1;
+    console.clear();
+    game();
+})
+
 // Randomise the AIs selection
 function computerPlay() {
     const randNum = (Math.floor(Math.random() * 3));
@@ -74,17 +93,20 @@ function game() {
         console.log(`   Player Score: ${userScore}\n   CPU Score: ${cpuScore}`);
         if (count === 6){
             if (userScore > cpuScore) {
-                console.log('Congrats! You win!')
+                console.log('Congrats! You win!');
+                // Updates with the results
+                results.innerText = 'Congrats! You win!';
             } else if (userScore === cpuScore) {
-                console.log('Draw! The scores are tied!')
+                console.log('Draw! You and the CPU tied!')
+                results.innerText = 'Draw! You and the CPU tied!';
             } else {
                 console.log('Oh no! You lost!')
+                results.innerText = 'Oh no! You lost!';
             }
         }
     }
 }
 
-// Executes the game 
-game();
+
 
 
