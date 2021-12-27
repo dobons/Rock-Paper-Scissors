@@ -1,6 +1,8 @@
 # Rock-Paper-Scissors
 
 A game of rock, paper, scissors using the console.
+Try it out!  
+https://dobons.github.io/Rock-Paper-Scissors/
 
 Changelog:  
 1: Added a function which checks if the user input is valid  
