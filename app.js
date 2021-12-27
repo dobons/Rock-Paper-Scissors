@@ -1,6 +1,6 @@
+// Randomise the AIs selection
 function computerPlay() {
     const randNum = (Math.floor(Math.random() * 3));
-
     if (randNum === 0){
         return 'Rock'
     } else if (randNum === 1) {
@@ -10,12 +10,26 @@ function computerPlay() {
     }
 }
 
+// Checks for a valid input
+function userPrompt(){
+    let userChoice = prompt("Enter Rock, Paper or Scissors").toLocaleLowerCase();
+    while (userChoice != "rock" || userChoice != "paper" || userChoice != "scissors") {
+        if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors"){
+            break;
+        } else{
+            userChoice = prompt('Try again! ')
+        }
+    } 
+    return userChoice
+}
+
+// Initial Scores
 let userScore = 0;
 let cpuScore = 0;
 
+// Plays one round and updates the scores
 function playRound(playerSelection, computerSelection) {
-  
-    playerSelection = prompt('Enter your input!').toLowerCase();
+    playerSelection = userPrompt();
     computerSelection = computerPlay().toLowerCase();
 
     if (playerSelection === computerSelection){
@@ -49,7 +63,9 @@ function playRound(playerSelection, computerSelection) {
     
 }
 
-function game(score) {
+// Plays 5 rounds and at the end will determine overall winner
+function game() {
+    // Set to one to make it simpler when showing the rounds
     let count = 1;
     for (let i = 0; count < 6; i++){
         console.log(`Round: ${count} `);
@@ -68,4 +84,7 @@ function game(score) {
     }
 }
 
+// Executes the game 
 game();
+
+
