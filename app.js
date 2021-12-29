@@ -86,7 +86,7 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     // Set to one to make it simpler when showing the rounds
     let count = 1;
-    for (let i = 0; count < 6; i++){
+    for (let i = 0; count <= 5; i++){
         console.log(`Round: ${count} `);
         playRound();        
         count++;
