@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors!</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="header">
-        <h1>Rock Paper Scissors!</h1>
+      <h1>Rock Paper Scissors!</h1>
     </div>
     <div class="content">
-    <img src="../Rock-Paper-Scissors/img/rock-paper-scissors-items.png" alt="RockPaperScissorImg">        
-    <div class="buttonsContainer">
-        <Button id="rockButton" >Rock</Button>
-        <button id="paperButton" >Paper</button>
-        <button id="scissorButton" >Scissors</button>
-    </div>
-  
-    <div class="scoresContainer">
+      <img
+        src="../Rock-Paper-Scissors/img/rock-paper-scissors-items.png"
+        alt="RockPaperScissorImg"
+      />
+      <div class="buttonsContainer">
+        <button id="rockButton">Rock</button>
+        <button id="paperButton">Paper</button>
+        <button id="scissorButton">Scissors</button>
+      </div>
+
+      <p id="gameCount"></p>
+
+      <div class="scoresContainer">
         <p id="userScore"></p>
         <p id="cpuScore"></p>
-    </div>
-    
-    <div class="resultsContainer">
+      </div>
+
+      <div class="resultsContainer">
         <p id="result"></p>
         <p id="finalResult"></p>
-    </div>
+      </div>
     </div>
 
     <div class="footer">
-        <p>Made by <a href="https://github.com/dobons">github.com/dobons</a> </p>
+      <p>Made by: <a href="https://github.com/dobons">github.com/dobons</a></p>
     </div>
-    
-    
+
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

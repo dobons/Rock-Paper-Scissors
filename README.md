@@ -11,3 +11,4 @@ Changelog:
 2.2: Added a reset button  
 2.3: Added a text which shows the outcome  
 3: Added a whole new UI using DOM
+3.1: Fixed some logic and cleaned up the code

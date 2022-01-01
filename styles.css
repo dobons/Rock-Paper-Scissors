@@ -3,7 +3,6 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #f5f4f0;
-
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -18,7 +17,77 @@ body {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #f5f4f0;
+}
+
+h1 {
+  color: #f5f4f0;
+  text-align: center;
+  font-weight: 900;
+  font-size: 55px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+button {
+  margin-top: 2rem;
+  padding: 10px 40px;
+  font-size: 30px;
+  background-color: #3d518c;
+  color: #f5f4f0;
+  border: 1px solid #3d518c;
+  border-radius: 5px;
+}
+
+p {
+  color: #091540;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.scoresContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+#userScore,
+#cpuScore,
+#gameCount {
+  font-size: 30px;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#result {
+  font-size: 40px;
+  font-weight: 900;
+  color: #3d518c;
+}
+
+#finalResult {
+  font-size: 50px;
+  font-weight: 900;
+  padding-top: 1rem;
 }
 
 .footer {
@@ -35,75 +104,4 @@ a {
 .footer p {
   color: white;
   padding: 20px;
-}
-
-h1 {
-  color: #abd2fa;
-  text-align: center;
-  font-weight: 900;
-  font-size: 55px;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-p {
-  color: #091540;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-button {
-  margin-top: 2rem;
-  padding: 10px 40px;
-  font-size: 35px;
-  background-color: #3d518c;
-  color: white;
-  border: 1px solid #7692ff;
-  border-radius: 5px;
-}
-
-.buttonsContainer {
-  display: flex;
-  gap: 2rem;
-}
-
-.scoresContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-}
-
-#userScore,
-#cpuScore {
-  font-size: 30px;
-}
-
-#result {
-  font-size: 40px;
-  font-weight: 900;
-  color: #3d518c;
-  /* border: 2px solid #7692ff;
-  background-color: #3d518c;
-  padding: 10px 20px;
-  border-radius: 5px; */
-}
-
-#finalResult {
-  font-size: 50px;
-  font-weight: 900;
-  padding-top: 1rem;
-}
-
-.resultsContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
