@@ -8,16 +8,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Rock Paper Scissors!</h1>
-    <img src="../Rock-Paper-Scissors/img/rock-paper-scissors-items.png" alt="RockPaperScissorImg">
-    <p>Open the console then click on the button to start playing</p>
-    <div class="buttons">
-        <Button id="startButton" >Press to Start!</Button>
-        <button id="resetButton" >Reset</button>
+    <div class="header">
+        <h1>Rock Paper Scissors!</h1>
     </div>
-    <p id="result"></p>
+    <div class="content">
+    <img src="../Rock-Paper-Scissors/img/rock-paper-scissors-items.png" alt="RockPaperScissorImg">        
+    <div class="buttonsContainer">
+        <Button id="rockButton" >Rock</Button>
+        <button id="paperButton" >Paper</button>
+        <button id="scissorButton" >Scissors</button>
+    </div>
+  
+    <div class="scoresContainer">
+        <p id="userScore"></p>
+        <p id="cpuScore"></p>
+    </div>
     
+    <div class="resultsContainer">
+        <p id="result"></p>
+        <p id="finalResult"></p>
+    </div>
+    </div>
 
+    <div class="footer">
+        <p>Made by <a href="https://github.com/dobons">github.com/dobons</a> </p>
+    </div>
+    
+    
     <script src="app.js"></script>
 </body>
 </html>

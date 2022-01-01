@@ -1,112 +1,167 @@
 // Making the button start the game once its clicked
-const startButton = document.querySelector('#startButton');
-const resetButton = document.querySelector('#resetButton');
+const rockButton = document.querySelector("#rockButton");
+const paperButton = document.querySelector("#paperButton");
+const scissorButton = document.querySelector("#scissorButton");
+
+const userScore = document.querySelector("#userScore");
+const cpuScore = document.querySelector("#cpuScore");
+
+const resetButton = document.querySelector("#resetButton");
 const results = document.querySelector("#result");
+const finalResults = document.querySelector("#finalResult");
+const resultsContainer = document.querySelector(".resultsContainer");
 
-startButton.addEventListener('click', function(e) {
-    // Executes the game 
-    game();
-})
+rockButton.addEventListener("click", function (e) {
+  playRound("rock", computerPlay());
 
-// Reset button clears the game
-resetButton.addEventListener('click', function(e) {
-    userScore = 0;
-    cpuScore = 0;
-    count = 1;
-    console.clear();
-    game();
-})
+});
+
+paperButton.addEventListener("click", function (e) {
+  playRound("paper", computerPlay());
+
+});
+
+scissorButton.addEventListener("click", function (e) {
+  playRound("scissors", computerPlay());
+
+});
 
 // Randomise the AIs selection
 function computerPlay() {
-    const randNum = (Math.floor(Math.random() * 3));
-    if (randNum === 0){
-        return 'Rock'
-    } else if (randNum === 1) {
-        return 'Paper'
-    } else {
-        return 'Scissors'
-    }
+  const randNum = Math.floor(Math.random() * 3);
+  if (randNum === 0) {
+    return "Rock";
+  } else if (randNum === 1) {
+    return "Paper";
+  } else {
+    return "Scissors";
+  }
 }
 
 // Checks for a valid input
-function userPrompt(){
-    let userChoice = prompt("Enter Rock, Paper or Scissors").toLocaleLowerCase();
-    while (userChoice != "rock" || userChoice != "paper" || userChoice != "scissors") {
-        if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors"){
-            break;
-        } else{
-            userChoice = prompt('Try again! ')
-        }
-    } 
-    return userChoice
+function userPrompt() {
+  let userChoice = prompt("Enter Rock, Paper or Scissors").toLocaleLowerCase();
+  while (
+    userChoice != "rock" ||
+    userChoice != "paper" ||
+    userChoice != "scissors"
+  ) {
+    if (
+      userChoice === "rock" ||
+      userChoice === "paper" ||
+      userChoice === "scissors"
+    ) {
+      break;
+    } else {
+      userChoice = prompt("Try again! ");
+    }
+  }
+  return userChoice;
 }
 
 // Initial Scores
-let userScore = 0;
-let cpuScore = 0;
+let userCount = 0;
+let cpuCount = 0;
 
 // Plays one round and updates the scores
 function playRound(playerSelection, computerSelection) {
-    playerSelection = userPrompt();
-    computerSelection = computerPlay().toLowerCase();
 
-    if (playerSelection === computerSelection){
-        console.log('Draw! Both played the same hand') 
+  userScore.innerText = `Player Score: ${userCount}`;
+  cpuScore.innerText = `CPU Score: ${cpuCount}`;
 
-    } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
-        console.log('You won! Rock beats Scissors!') 
-        return userScore++
+  computerSelection = computerPlay().toLowerCase();
 
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        console.log('You won! Paper beats Rock!' ) 
-        return userScore++
-
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        console.log('You won! Scissors beats Paper!') 
-        return userScore++
-
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        console.log('You lose! Paper beats Rock!')         
-        return cpuScore++
-
-    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        console.log('You lose! Scissors beats Paper!') 
-        return cpuScore++
-
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        console.log('You lose! Rock beats Scissors!') 
-        return cpuScore++
-
+  if (userCount !== 5 && cpuCount !== 5) {
+    if (playerSelection === computerSelection) {
+      results.innerText = "Draw! Both played the same hand";
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+      results.innerText = "You won! Rock beats Scissors!";
+      return userCount++;
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+      results.innerText = "You won! Paper beats Rock!";
+      return userCount++;
+    } else if (
+      playerSelection === "scissors" &&
+      computerSelection === "paper"
+    ) {
+      results.innerText = "You won! Scissors beats Paper!";
+      return userCount++;
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+      results.innerText = "You lose! Paper beats Rock!";
+      return cpuCount++;
+    } else if (
+      playerSelection === "paper" &&
+      computerSelection === "scissors"
+    ) {
+      results.innerText = "You lose! Scissors beats Paper!";
+      return cpuCount++;
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+      results.innerText = "You lose! Rock beats Scissors!";
+      return cpuCount++;
     }
-    
+  } else if (userCount === 5){
+      finalResults.innerText = 'You Win!';
+      finalResults.style.color = 'green';
+      userScore.style.fontSize = '50px';
+      gameOver();
+
+    } else {
+        finalResults.innerText = 'You lose!';
+        finalResults.style.color = 'red';
+        cpuScore.style.fontSize = '50px';
+        gameOver();
+    }
 }
 
-// Plays 5 rounds and at the end will determine overall winner
-function game() {
-    // Set to one to make it simpler when showing the rounds
-    let count = 1;
-    for (let i = 0; count <= 5; i++){
-        console.log(`Round: ${count} `);
-        playRound();        
-        count++;
-        console.log(`   Player Score: ${userScore}\n   CPU Score: ${cpuScore}`);
-        if (count === 6){
-            if (userScore > cpuScore) {
-                console.log('Congrats! You win!');
-                // Updates with the results
-                results.innerText = 'Congrats! You win!';
-            } else if (userScore === cpuScore) {
-                console.log('Draw! You and the CPU tied!')
-                results.innerText = 'Draw! You and the CPU tied!';
-            } else {
-                console.log('Oh no! You lost!')
-                results.innerText = 'Oh no! You lost!';
-            }
+function gameOver(){
+    userCount = 0;
+    cpuCount = 0;
+    results.remove();
+    rockButton.remove();
+    paperButton.remove();
+    scissorButton.remove();
+
+    const reset = document.createElement('button');
+    reset.id = 'resetButton';
+    reset.innerText = 'Play Again?'
+    resultsContainer.appendChild(reset);
+
+    document.body.addEventListener('click', function(e){
+        if (e.target.id === 'resetButton'){
+            reset.remove();
+            restartGame();
         }
-    }
+    })
 }
 
 
+function restartGame(){
+    location.reload();
+
+}
 
 
+// // Plays 5 rounds and at the end will determine overall winner
+// function game() {
+//     // Set to one to make it simpler when showing the rounds
+//     let count = 1;
+//     for (let i = 0; count <= 5; i++){
+//         console.log(`Round: ${count} `);
+//         playRound();
+//         count++;
+//         console.log(`   Player Score: ${userCount}\n   CPU Score: ${cpuCount}`);
+//         if (count === 6){
+//             if (userCount > cpuCount) {
+//                 console.log('Congrats! You win!');
+//                 // Updates with the results
+//                 finalResults.innerText = 'Congrats! You win!';
+//             } else if (userCount === cpuCount) {
+//                 console.log('Draw! You and the CPU tied!')
+//                 finalResults.innerText = 'Draw! You and the CPU tied!';
+//             } else {
+//                 console.log('Oh no! You lost!')
+//                 finalResults.innerText = 'Oh no! You lost!';
+//             }
+//         }
+//     }
+// }

@@ -1,11 +1,40 @@
 body {
-  background-color: #091540;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: #f5f4f0;
+
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.header {
+  background-color: #091540;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer {
+  background-color: #091540;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer p {
+  color: white;
+  padding: 20px;
 }
 
 h1 {
@@ -15,30 +44,66 @@ h1 {
   font-size: 55px;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 p {
-  color: white;
+  color: #091540;
   font-size: 18px;
-  padding-top: 2rem;
+  font-weight: 700;
 }
 
 button {
   margin-top: 2rem;
   padding: 10px 40px;
-  font-size: 20px;
+  font-size: 35px;
   background-color: #3d518c;
   color: white;
   border: 1px solid #7692ff;
   border-radius: 5px;
 }
 
-.buttons {
+.buttonsContainer {
   display: flex;
   gap: 2rem;
+}
+
+.scoresContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+#userScore,
+#cpuScore {
+  font-size: 30px;
 }
 
 #result {
   font-size: 40px;
   font-weight: 900;
-  color: #abd2fa;
-  padding-top: 6rem;
+  color: #3d518c;
+  /* border: 2px solid #7692ff;
+  background-color: #3d518c;
+  padding: 10px 20px;
+  border-radius: 5px; */
+}
+
+#finalResult {
+  font-size: 50px;
+  font-weight: 900;
+  padding-top: 1rem;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
